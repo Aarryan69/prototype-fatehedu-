@@ -1,0 +1,37 @@
+FUTURESCAN — JUDGING DEMO
+
+1. Download FutureScan.html and open it in a normal browser (Chrome or Edge
+   recommended). Open it as a webpage, not inside a document previewer.
+   No internet, installation, account, or API key is required.
+
+2. Fill in the blank form with fictional information, or choose
+   "Try a demo profile" at the top right. On mobile, use the sparkle button.
+
+   ANANYA: Prepared planner — 97/100, Ready to plan.
+   KABIR: Early explorer — 69/100, Needs preparation.
+   RIYA: Ambitious dreamer — 64/100, Pause & verify affordability.
+
+3. Walk through the form. All sample answers are editable. The myth-busters
+   are optional. Click "Reveal my FatehScore", or use "See my scorecard"
+   once all required details are filled in.
+
+4. Show the four-factor breakdown, sample funding gap, and personal roadmap.
+   Use "Explore a what-if" to demonstrate how funding changes the score.
+   Part-time work reliance continues to trigger the affordability pathway
+   until that answer is changed too.
+
+5. Click "Save scorecard" and choose "Save as PDF". Use A4 paper, default
+   scale, and disable browser headers and footers for the cleanest result.
+   The Action Desk lets you add a next-step preference to the roadmap;
+   it does not create an actual appointment.
+
+Deck weights: Academic fit 30%, Budget preparedness 30%, Documentation 20%,
+Timeline readiness 20%. Numerical scoring rules, sample costs, and grade
+benchmarks are prototype assumptions. Read "How it works" for details.
+This is a planning-readiness demonstration, not an admission or visa predictor.
+
+Answers stay in the open tab. Reloading clears them. Save the scorecard
+before closing the browser if you want to keep it.
+
+For developers: FutureScan-source.zip includes the React/Vite source,
+scoring model, automated tests, README, and the standalone production HTML.
