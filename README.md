@@ -101,6 +101,7 @@ npm run test:ui   # Requires the dev server and system Chromium
 ## Files
 
 - `src/App.jsx`: guided form, scorecard, myth-busters, methodology, Action Desk.
+- `src/assets/fateh-logo.png`: the user-supplied Fateh logo, preserved unchanged and embedded in the offline build. Used in the header, footer, loading screen, browser icon, and printed scorecard.
 - `src/scoring.js`: sample programmes, weights, validation, scoring, pathways, roadmap, and demo profiles.
 - `src/styles.css`: responsive interface and A4 print layout.
 - `tests/scoring.test.js`: scoring and boundary tests.

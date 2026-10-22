@@ -25,7 +25,7 @@ async function showScore() {
 try {
   await page.goto(origin);
   await page.evaluate(() => document.fonts.ready);
-  await page.screenshot({ path: 'artifacts/form-desktop.png', fullPage: true });
+  await page.screenshot({ path: 'artifacts/form-desktop.png', fullPage: true, animations: 'disabled' });
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   assert.ok(await page.getByRole('alert').count() >= 5);
   pass('blank form validates required fields');
@@ -70,7 +70,7 @@ try {
   await page.locator('.action-desk').getByRole('heading', { name: 'Parent Cost Clarity session' }).waitFor();
   pass('Action Desk adds a local preference without sending a booking');
   await page.locator('.toast').waitFor({ state: 'detached' });
-  await page.screenshot({ path: 'artifacts/scorecard-desktop.png', fullPage: true });
+  await page.screenshot({ path: 'artifacts/scorecard-desktop.png', fullPage: true, animations: 'disabled' });
   await page.pdf({ path: 'artifacts/FutureScan-sample-scorecard.pdf', format: 'A4', printBackground: true });
 
   for (const sample of samples.slice(1)) {
@@ -102,11 +102,11 @@ try {
   pass('reset requires an explicit choice and clears the profile');
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.screenshot({ path: 'artifacts/form-mobile.png', fullPage: true });
+  await page.screenshot({ path: 'artifacts/form-mobile.png', fullPage: true, animations: 'disabled' });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await loadDemo('Kabir');
   await showScore();
-  await page.screenshot({ path: 'artifacts/scorecard-mobile.png', fullPage: true });
+  await page.screenshot({ path: 'artifacts/scorecard-mobile.png', fullPage: true, animations: 'disabled' });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   pass('mobile form and scorecard fit a 390px viewport');
 
@@ -117,6 +117,12 @@ try {
   // The managed cloud browser disallows file: navigation. Exercise the exact
   // standalone HTML contents in a blank document with network requests blocked.
   await offline.setContent(await readFile('dist/index.html', 'utf8'), { waitUntil: 'load' });
+  for (const selector of ['.brand-logo', '.footer-logo']) {
+    const logo = offline.locator(selector);
+    await logo.evaluate(img => img.decode());
+    assert.ok(await logo.evaluate(img => img.naturalWidth > 0 && img.naturalHeight > 0));
+  }
+  pass('supplied header and footer logos load in the offline build');
   await offline.getByRole('button', { name: 'Try a demo profile' }).click();
   await offline.getByRole('button', { name: /Ananya The prepared/ }).click();
   await offline.getByRole('button', { name: 'See my scorecard' }).click();
